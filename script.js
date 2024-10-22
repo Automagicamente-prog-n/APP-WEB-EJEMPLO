@@ -52,34 +52,11 @@ const products = [
         title: 'Bufanda',
         price: '$15',
         type: 'Accesorio'
-    },
-    {
-        img: 'bufanda.jpg',
-        title: 'Bufanda',
-        price: '$15',
-        type: 'Accesorio'
-    },
-    {
-        img: 'bufanda.jpg',
-        title: 'Bufanda',
-        price: '$15',
-        type: 'Accesorio'
-    },
-    {
-        img: 'bufanda.jpg',
-        title: 'Bufanda',
-        price: '$15',
-        type: 'Accesorio'
-    },
-    {
-        img: 'bufanda.jpg',
-        title: 'Bufanda',
-        price: '$15',
-        type: 'Accesorio'
     }
 ];
 
 let currentSlide = 0;
+let autoSlideInterval;
 
 // Generar tarjetas dinámicamente
 function generateCards() {
@@ -88,10 +65,6 @@ function generateCards() {
     let itemHTML = '';
 
     products.forEach((product, index) => {
-        if (index % itemsPerSlide === 0 && index > 0) {
-            carouselInner.innerHTML += `<div class="carousel-item">${itemHTML}</div>`;
-            itemHTML = '';
-        }
         itemHTML += `
             <div class="card">
                 <img src="https://images.vexels.com/content/142672/preview/green-stroke-tshirt-clothes-67a636.png" alt="${product.title}">
@@ -100,18 +73,20 @@ function generateCards() {
                 <p class="card-text">Tipo: ${product.type}</p>
             </div>
         `;
+        
+        // Añadir la serie de tarjetas al carrusel
+        if ((index + 1) % itemsPerSlide === 0 || index === products.length - 1) {
+            carouselInner.innerHTML += `<div class="carousel-item">${itemHTML}</div>`;
+            itemHTML = '';
+        }
     });
-    // Añadir la última serie de tarjetas
-    if (itemHTML) {
-        carouselInner.innerHTML += `<div class="carousel-item">${itemHTML}</div>`;
-    }
 }
 
 // Mostrar la diapositiva seleccionada
 function showSlide(index) {
     const slides = document.querySelectorAll('.carousel-item');
     const totalSlides = slides.length;
-    
+
     if (index >= totalSlides) {
         currentSlide = 0;
     } else if (index < 0) {
@@ -119,7 +94,7 @@ function showSlide(index) {
     } else {
         currentSlide = index;
     }
-    
+
     const offset = -currentSlide * 100;
     document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
 }
@@ -133,5 +108,23 @@ function prevSlide() {
     showSlide(currentSlide - 1);
 }
 
-// Inicializar las tarjetas
+// Inicializar las tarjetas y la animación automática
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        nextSlide();
+    }, 3000); // Cambia la diapositiva cada 3 segundos
+}
+
+// Detener la animación automática al interactuar
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
+
+// Inicializar las tarjetas y la animación
 generateCards();
+startAutoSlide();
+
+// Detener la animación cuando se pasa el ratón sobre el carrusel
+const carousel = document.querySelector('.carousel');
+carousel.addEventListener('mouseenter', stopAutoSlide);
+carousel.addEventListener('mouseleave', startAutoSlide);

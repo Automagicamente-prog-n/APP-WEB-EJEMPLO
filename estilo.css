@@ -28,7 +28,7 @@ body {
 }
 
 .card {
-    flex: 1;
+    flex: 1 0 30%; /* Permite que las tarjetas ocupen el 30% del ancho */
     margin: 5px;
     padding: 10px;
     background-color: white;
