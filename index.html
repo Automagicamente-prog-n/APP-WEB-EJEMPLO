@@ -3,36 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Ropa</title>
     <link rel="stylesheet" href="estilo.css">
+    <title>Tienda de Ropa</title>
 </head>
 <body>
-    <header>
-        <h1>Tienda de Ropa</h1>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
+
+    <!-- Banner -->
+    <header class="banner">
+        <h1>Bienvenido a Nuestra Tienda de Ropa</h1>
     </header>
 
-    <main>
-        <h2>Camisetas</h2>
-        <section class="carrusel" id="carrusel-camisetas"></section>
+    <!-- Carrusel de productos -->
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card">
+                    <img src="camiseta.jpg" alt="Camiseta">
+                    <h5 class="card-title">Camiseta</h5>
+                    <p class="card-text">Precio: $20</p>
+                    <p class="card-text">Tipo: Casual</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.vexels.com/content/142672/preview/green-stroke-tshirt-clothes-67a636.png" alt="Pantalón">
+                    <h5 class="card-title">Pantalón</h5>
+                    <p class="card-text">Precio: $30</p>
+                    <p class="card-text">Tipo: Formal</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.vexels.com/content/142672/preview/green-stroke-tshirt-clothes-67a636.png" alt="Chaqueta">
+                    <h5 class="card-title">Chaqueta</h5>
+                    <p class="card-text">Precio: $50</p>
+                    <p class="card-text">Tipo: Abrigo</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card">
+                    <img src="https://images.vexels.com/content/142672/preview/green-stroke-tshirt-clothes-67a636.png" alt="Falda">
+                    <h5 class="card-title">Falda</h5>
+                    <p class="card-text">Precio: $25</p>
+                    <p class="card-text">Tipo: Casual</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.vexels.com/content/142672/preview/green-stroke-tshirt-clothes-67a636.png" alt="Zapatos">
+                    <h5 class="card-title">Zapatos</h5>
+                    <p class="card-text">Precio: $40</p>
+                    <p class="card-text">Tipo: Formal</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.vexels.com/content/142672/preview/green-stroke-tshirt-clothes-67a636.png" alt="Bufanda">
+                    <h5 class="card-title">Bufanda</h5>
+                    <p class="card-text">Precio: $15</p>
+                    <p class="card-text">Tipo: Accesorio</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control prev" onclick="prevSlide()">❮</button>
+        <button class="carousel-control next" onclick="nextSlide()">❯</button>
+    </div>
 
-        <h2>Pantalones</h2>
-        <section class="carrusel" id="carrusel-pantalones"></section>
-
-        <h2>Chaquetas</h2>
-        <section class="carrusel" id="carrusel-chaquetas"></section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Tienda de Ropa</p>
-    </footer>
-
-    <script src="script.js"></script> <!-- Enlace al script de JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
