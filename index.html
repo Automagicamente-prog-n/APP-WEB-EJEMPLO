@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Ropa</title>
     <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <header>
@@ -20,19 +21,53 @@
 
     <main>
         <h2>Camisetas</h2>
-        <section class="carrusel" id="carrusel-camisetas"></section>
+        <div id="carrusel-camisetas" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner"></div>
+            <a class="carousel-control-prev" href="#carrusel-camisetas" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carrusel-camisetas" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+        
 
         <h2>Pantalones</h2>
-        <section class="carrusel" id="carrusel-pantalones"></section>
+        <div id="carrusel-pantalones" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner"></div>
+            <a class="carousel-control-prev" href="#carrusel-pantalones" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carrusel-pantalones" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
 
         <h2>Chaquetas</h2>
-        <section class="carrusel" id="carrusel-chaquetas"></section>
+        <div id="carrusel-chaquetas" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner"></div>
+            <a class="carousel-control-prev" href="#carrusel-chaquetas" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carrusel-chaquetas" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2024 Tienda de Ropa</p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script> <!-- Enlace al script de JavaScript -->
 </body>
 </html>

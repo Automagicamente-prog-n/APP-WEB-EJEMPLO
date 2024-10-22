@@ -24,74 +24,27 @@ const productos = {
     ]
 };
 
-// Variable para el índice actual del carrusel
-let currentIndex = 0;
-const itemsPorVista = 3; // Número de productos a mostrar en cada vista
-
 // Función para crear y mostrar carruseles
 const mostrarCarruseles = () => {
     Object.keys(productos).forEach(categoria => {
-        const carrusel = document.getElementById(`carrusel-${categoria}`);
-        const carruselInner = document.createElement('div');
-        carruselInner.classList.add('carrusel-inner');
+        const carruselInner = document.querySelector(`#carrusel-${categoria} .carousel-inner`);
 
-        productos[categoria].forEach(producto => {
-            const tarjeta = document.createElement('div');
-            tarjeta.classList.add('producto');
-            tarjeta.innerHTML = `
-                <img src="https://images.vexels.com/content/142672/preview/green-stroke-tshirt-clothes-67a636.png" alt="${producto.nombre}">
-                <h3>${producto.nombre}</h3>
-                <p>${producto.precio}</p>
-                <button onclick="mostrarDetalles('${producto.detalles}')">Detalles</button>
-                <div class="detalles" style="display:none;">
-                    <p>${producto.detalles}</p>
+        productos[categoria].forEach((producto, index) => {
+            const item = document.createElement('div');
+            item.classList.add('carousel-item');
+            if (index === 0) item.classList.add('active'); // Hacer que el primer elemento sea activo
+
+            item.innerHTML = `
+                <img src="https://images.vexels.com/content/142672/preview/green-stroke-tshirt-clothes-67a636.png" class="d-block w-100" alt="${producto.nombre}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>${producto.nombre}</h5>
+                    <p>${producto.precio}</p>
+                    <button onclick="mostrarDetalles('${producto.detalles}')">Detalles</button>
                 </div>
             `;
-            carruselInner.appendChild(tarjeta);
+            carruselInner.appendChild(item);
         });
-
-        carrusel.appendChild(carruselInner);
-
-        // Agregar controles de carrusel
-        const prevButton = document.createElement('button');
-        prevButton.classList.add('prev');
-        prevButton.innerHTML = '❮';
-        prevButton.onclick = () => moverCarrusel(carruselInner, -1);
-        carrusel.appendChild(prevButton);
-
-        const nextButton = document.createElement('button');
-        nextButton.classList.add('next');
-        nextButton.innerHTML = '❯';
-        nextButton.onclick = () => moverCarrusel(carruselInner, 1);
-        carrusel.appendChild(nextButton);
-
-        // Mostrar solo los primeros productos al cargar
-        for (let i = 0; i < carruselInner.children.length; i++) {
-            if (i < itemsPorVista) {
-                carruselInner.children[i].style.display = "block";
-            } else {
-                carruselInner.children[i].style.display = "none";
-            }
-        }
     });
-};
-
-// Función para mover el carrusel
-const moverCarrusel = (carruselInner, direccion) => {
-    const productos = carruselInner.children;
-
-    // Ocultar los productos actuales
-    for (let i = 0; i < itemsPorVista; i++) {
-        productos[(currentIndex + i) % productos.length].style.display = "none";
-    }
-
-    // Calcular el nuevo índice
-    currentIndex = (currentIndex + direccion + productos.length) % productos.length;
-
-    // Mostrar los nuevos productos
-    for (let i = 0; i < itemsPorVista; i++) {
-        productos[(currentIndex + i) % productos.length].style.display = "block";
-    }
 };
 
 // Llamada a la función para mostrar los carruseles al cargar la página
