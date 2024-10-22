@@ -1,132 +1,36 @@
-/* Estructura básica y layout general */
-html, body {
-    height: 100%;
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
     background-color: #f4f4f4;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header {
-    background-color: #4A90E2;
+    background-color: #333;
     color: white;
-    padding: 1.5rem;
+    padding: 1rem;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
 }
 
 nav ul li {
+    display: inline;
     margin: 0 10px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ffdd57;
 }
 
 main {
-    flex-grow: 1;
     padding: 2rem;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2.2rem;
-    color: #333;
-}
-
-/* Estilos para el contenedor de productos */
-#productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-/* Tarjeta de producto con sombras y efectos visuales */
-.producto {
-    background-color: white;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.producto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.producto img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
-
-.producto h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.producto p {
-    font-size: 1.2rem;
-    color: #4A90E2;
-    margin-bottom: 1rem;
-}
-
-button {
-    background-color: #28a745;
-    color: white;
-    padding: 0.7rem 1.5rem;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-/* Footer siempre en la parte inferior */
-footer {
-    background-color: #4A90E2;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    width: 100%;
-    margin-top: auto;
-    font-size: 0.9rem;
-}
-/* Asegurar que el contenedor de detalles esté oculto inicialmente */
-.detalles {
-    margin-top: 1rem;
-    color: #666;
-    font-size: 0.9rem;
-}
-/* Estilos para el carrusel */
 .carrusel {
     position: relative;
     overflow: hidden;
@@ -138,12 +42,12 @@ footer {
 .carrusel-inner {
     display: flex;
     transition: transform 0.5s ease;
-    width: 100%;
 }
 
 .producto {
     min-width: 200px; /* Ancho mínimo de cada tarjeta */
     margin: 10px;
+    text-align: center;
 }
 
 button.prev, button.next {
@@ -170,4 +74,20 @@ button.next {
 
 button:hover {
     background-color: #007BFF;
+}
+
+.detalles {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative; /* Cambiar de absolute a relative */
+    bottom: 0;
+    width: 100%;
 }

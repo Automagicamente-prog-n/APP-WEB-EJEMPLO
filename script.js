@@ -17,6 +17,9 @@ const productos = {
     ]
 };
 
+// Variable para el índice actual del carrusel
+let currentIndex = 0;
+
 // Función para crear y mostrar carruseles
 const mostrarCarruseles = () => {
     Object.keys(productos).forEach(categoria => {
@@ -53,23 +56,26 @@ const mostrarCarruseles = () => {
         nextButton.innerHTML = '❯';
         nextButton.onclick = () => moverCarrusel(carruselInner, 1);
         carrusel.appendChild(nextButton);
+
+        // Mostrar solo el primer producto al cargar
+        for (let i = 1; i < carruselInner.children.length; i++) {
+            carruselInner.children[i].style.display = "none";
+        }
     });
 };
 
 // Función para mover el carrusel
 const moverCarrusel = (carruselInner, direccion) => {
     const productos = carruselInner.children;
-    let index = Array.from(productos).findIndex(producto => producto.style.display !== "none");
-    if (index === -1) index = 0; // Si no hay visible, mostrar el primero
 
-    // Ocultar producto actual
-    productos[index].style.display = "none";
+    // Ocultar el producto actual
+    productos[currentIndex].style.display = "none";
 
     // Calcular el nuevo índice
-    index = (index + direccion + productos.length) % productos.length;
+    currentIndex = (currentIndex + direccion + productos.length) % productos.length;
 
     // Mostrar el siguiente producto
-    productos[index].style.display = "block";
+    productos[currentIndex].style.display = "block";
 };
 
 // Llamada a la función para mostrar los carruseles al cargar la página
