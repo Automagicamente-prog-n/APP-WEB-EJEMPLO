@@ -126,3 +126,48 @@ footer {
     color: #666;
     font-size: 0.9rem;
 }
+/* Estilos para el carrusel */
+.carrusel {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrusel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.producto {
+    min-width: 200px; /* Ancho mínimo de cada tarjeta */
+    margin: 10px;
+}
+
+button.prev, button.next {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button:hover {
+    background-color: #007BFF;
+}
